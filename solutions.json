@@ -1,0 +1,199 @@
+[
+    {
+        "problem": "how to read a file using node js?",
+        "wannna_post": false,
+        "solutions": [
+            {
+                "question_asked": "Using Node.JS, how do I read a JSON file into (server) memory?",
+                "answers": [
+                    {
+                        "text": [
+                            "Sync:",
+                            "Async:"
+                        ],
+                        "codes": [
+                            "var fs = require('fs');\nvar obj = JSON.parse(fs.readFileSync('file', 'utf8'));",
+                            "var fs = require('fs');\nvar obj;\nfs.readFile('file', 'utf8', function (err, data) {\n  if (err) throw err;\n  obj = JSON.parse(data);\n});"
+                        ]
+                    },
+                    {
+                        "text": [
+                            "Sync:",
+                            "Async:",
+                            "The easiest way I have found to do this is to just use require and the path to your JSON file.",
+                            "For example, suppose you have the following JSON file."
+                        ],
+                        "codes": [
+                            "var fs = require('fs');\nvar obj = JSON.parse(fs.readFileSync('file', 'utf8'));",
+                            "var fs = require('fs');\nvar obj;\nfs.readFile('file', 'utf8', function (err, data) {\n  if (err) throw err;\n  obj = JSON.parse(data);\n});",
+                            "require",
+                            "{\n  \"firstName\": \"Joe\",\n  \"lastName\": \"Smith\"\n}"
+                        ]
+                    },
+                    {
+                        "text": [
+                            "Sync:",
+                            "Async:"
+                        ],
+                        "codes": [
+                            "var fs = require('fs');\nvar obj = JSON.parse(fs.readFileSync('file', 'utf8'));"
+                        ]
+                    }
+                ]
+            },
+            {
+                "question_asked": "How to read csv file in node js",
+                "answers": [
+                    {
+                        "text": [
+                            "Use a library, CSV has lots of gotchas. I have come to enjoy the package csv. It is located here: https://www.npmjs.com/package/csv . Here is a very quick example using the async api.",
+                            "Since your file does not have multiple values per row and contains no delimiters besides newline, it is only trivially CSV. Maybe String.prototype.split() is for you?"
+                        ],
+                        "codes": [
+                            "csv",
+                            "const fs = require('fs')\nvar parse = require('csv-parse')\nfs.readFile(inputPath, function (err, fileData) {\n  parse(fileData, {columns: false, trim: true}, function(err, rows) {\n    // Your CSV data is in an array of arrys passed to this callback as rows.\n  })\n})",
+                            "String.prototype.split()",
+                            "const fs = require('fs')\nfs.readFile(inputPath, 'utf8', function (err, data) {\n  var dataArray = data.split(/\\r?\\n/);  //Be careful if you are in a \\r\\n world...\n  // Your array contains ['ID', 'D11', ... ]\n})"
+                        ]
+                    },
+                    {
+                        "text": [
+                            "Use a library, CSV has lots of gotchas. I have come to enjoy the package csv. It is located here: https://www.npmjs.com/package/csv . Here is a very quick example using the async api.",
+                            "Since your file does not have multiple values per row and contains no delimiters besides newline, it is only trivially CSV. Maybe String.prototype.split() is for you?",
+                            "From How to read data From *.CSV file using javascript?, use the jQuery-CSV library."
+                        ],
+                        "codes": [
+                            "csv",
+                            "const fs = require('fs')\nvar parse = require('csv-parse')\nfs.readFile(inputPath, function (err, fileData) {\n  parse(fileData, {columns: false, trim: true}, function(err, rows) {\n    // Your CSV data is in an array of arrys passed to this callback as rows.\n  })\n})"
+                        ]
+                    },
+                    {
+                        "text": [
+                            "Use a library, CSV has lots of gotchas. I have come to enjoy the package csv. It is located here: https://www.npmjs.com/package/csv . Here is a very quick example using the async api."
+                        ],
+                        "codes": [
+                            "csv",
+                            "const fs = require('fs')\nvar parse = require('csv-parse')\nfs.readFile(inputPath, function (err, fileData) {\n  parse(fileData, {columns: false, trim: true}, function(err, rows) {\n    // Your CSV data is in an array of arrys passed to this callback as rows.\n  })\n})",
+                            "String.prototype.split()"
+                        ]
+                    }
+                ]
+            },
+            {
+                "question_asked": "how to read line by line in file and also check line is empty or not?",
+                "answers": [
+                    {
+                        "text": [
+                            "Try checking the length of the string for each line:",
+                            "The above logic would only log non empty inputs, but you may change it to whatever you want."
+                        ],
+                        "codes": [
+                            "var count = 0;\nvar lineReader = require('readline').createInterface({\n    input: require('fs').createReadStream('./data.js')\n});\nlineReader.on('line', function (line) {\n    ++count;  // keep a count of number of lines\n    if (line.length > 0) {\n        console.log('Line from file:', line);\n    }\n});"
+                        ]
+                    }
+                ]
+            }
+        ],
+        "answer_stat": true
+    },
+    {
+        "problem": "python is not a internal or external command",
+        "wannna_post": false,
+        "solutions": [
+            {
+                "question_asked": "'python' is not recognized as an internal or external command",
+                "answers": [
+                    {
+                        "text": [
+                            "You need to add that folder to your Windows Path:",
+                            "https://docs.python.org/2/using/windows.html Taken from this question."
+                        ],
+                        "codes": []
+                    },
+                    {
+                        "text": [
+                            "You need to add that folder to your Windows Path:",
+                            "https://docs.python.org/2/using/windows.html Taken from this question."
+                        ],
+                        "codes": []
+                    },
+                    {
+                        "text": [
+                            "You need to add that folder to your Windows Path:",
+                            "https://docs.python.org/2/using/windows.html Taken from this question."
+                        ],
+                        "codes": []
+                    }
+                ]
+            },
+            {
+                "question_asked": "Windows: Anaconda 'python' is not recognized as an internal or external command on CMD",
+                "answers": [
+                    {
+                        "text": [
+                            "You probably haven't added it to your environment variables, here how you do it:",
+                            "Go to \"Edit the system environment variables\" inside of control panel (you can search for it to using the search thing).",
+                            "Once you are there make sure you are in the advanced section.",
+                            "Click \"Environment variables\". In the section that says \"System variables\" search for something named \"Path\".",
+                            "If path is not there, simply create it by clicking \"New\" in the part that says system variables.",
+                            "Once you got that done, select \"Path\" and click edit, now find the path that you installed Anaconda in (i.e C:\\Users\\ftake\\Anaconda3) and add it to the \"Path\".",
+                            "Once you got that done try using the python command again and it should work.",
+                            "If I was unclear about something, you can follow this as well: https://www.java.com/en/download/help/path.xml",
+                            "I know it's for java but it works the exact same way for python.",
+                            "EDIT: Also for pip it's literally the same thing just add \\Scripts to the end of the path"
+                        ],
+                        "codes": []
+                    },
+                    {
+                        "text": [
+                            "You probably haven't added it to your environment variables, here how you do it:",
+                            "Go to \"Edit the system environment variables\" inside of control panel (you can search for it to using the search thing).",
+                            "Once you are there make sure you are in the advanced section.",
+                            "Click \"Environment variables\". In the section that says \"System variables\" search for something named \"Path\".",
+                            "If path is not there, simply create it by clicking \"New\" in the part that says system variables.",
+                            "Once you got that done, select \"Path\" and click edit, now find the path that you installed Anaconda in (i.e C:\\Users\\ftake\\Anaconda3) and add it to the \"Path\"."
+                        ],
+                        "codes": []
+                    },
+                    {
+                        "text": [
+                            "You probably haven't added it to your environment variables, here how you do it:",
+                            "Go to \"Edit the system environment variables\" inside of control panel (you can search for it to using the search thing).",
+                            "Once you are there make sure you are in the advanced section.",
+                            "Click \"Environment variables\". In the section that says \"System variables\" search for something named \"Path\".",
+                            "If path is not there, simply create it by clicking \"New\" in the part that says system variables."
+                        ],
+                        "codes": []
+                    }
+                ]
+            },
+            {
+                "question_asked": "python' is not recognized as an internal or external command, operable program or batch file",
+                "answers": [
+                    {
+                        "text": [
+                            "C:\\Users\\xxxxx\\Desktop\\flaskapp>C:\\Users\\xxxxxx\\AppData\\Local\\Programs\\Python\\Python37-32\\python app.py",
+                            "^this should run it.",
+                            "Path probably wants to be: C:\\Users\\xxxxxx\\AppData\\Local\\Programs\\Python\\Python37-32\\, then you can use: C:\\Users\\xxxxx\\Desktop\\flaskapp>python app.py"
+                        ],
+                        "codes": []
+                    }
+                ]
+            }
+        ],
+        "answer_stat": true
+    },
+    {
+        "problem": "ndjfkdsfdkfkfffdsfhkjdfs.",
+        "wannna_post": true,
+        "credentials": "./crendentials.json",
+        "question_data": {
+            "title": "IS THERE ANY INBUILT OPTION FOR SCRAPPING DATA ELEMENTS IN PUPETEER?",
+            "description": " WHEN I WAS DOING AUTOMATION USING JAVASCRIPT AND PUEPTEER I FIND IT DIFFICULT TO EVERY TIME USING CHEERIO OR ANY OTHER LIBRARAY FOR SCRAPPING DATA OUT OF TAGS , DOES PUPETTEER GIVES US ANY INBUILT OPTION TO EXTRACT TEXT BETWEEN TAGS I AM AWARE ABOUT THE PAGE.EVALUATE() WHERE YOU CAN PASS DOCUMENT QUERTY SELECTOR BUT IT'S KIND OF OLD SCHOOL THING SO IS THERE ANY OTHER PREFFERED WAY TO EXTRACT TEXT OUT OF TAGS IN PUPETTEER.",
+            "code_file": "./code_with_error.js",
+            "tags": "javascript "
+        },
+        "solutions": [],
+        "answer_stat": false
+    }
+]
